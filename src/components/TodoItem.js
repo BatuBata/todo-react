@@ -25,9 +25,9 @@ export class TodoItem extends Component {
 
     render() {
 
-    const { id,title } = this.props.todo;
+    // const { id,title } = this.props.todo;
     // with api laravel
-    // const { id,title,created_at } = this.props.todo;
+    const { id,title,created_at } = this.props.todo;
     return (
       <div style={ this.getStyle() } >
         <p>
@@ -36,8 +36,8 @@ export class TodoItem extends Component {
             {' '}
             { title }
             {/* with api laravel */}
-            {/* {' - '}
-            { created_at } */}
+            {' - '}
+            { created_at }
             <button style={btnStyle} 
                     onClick={this.props.delTodo.bind(this, id)}>x</button>
         </p>
