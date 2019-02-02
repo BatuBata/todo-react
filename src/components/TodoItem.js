@@ -25,7 +25,9 @@ export class TodoItem extends Component {
 
     render() {
 
-    const { id,title,created_at } = this.props.todo;
+    const { id,title } = this.props.todo;
+    // with api laravel
+    // const { id,title,created_at } = this.props.todo;
     return (
       <div style={ this.getStyle() } >
         <p>
@@ -33,8 +35,9 @@ export class TodoItem extends Component {
                    onClick={this.props.markComplete.bind(this, id)} /> 
             {' '}
             { title }
-            {' - '}
-            { created_at }
+            {/* with api laravel */}
+            {/* {' - '}
+            { created_at } */}
             <button style={btnStyle} 
                     onClick={this.props.delTodo.bind(this, id)}>x</button>
         </p>

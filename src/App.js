@@ -15,12 +15,37 @@ class App extends Component {
     todos: []
   }
 
+  // get todos with laravel api
+  // componentDidMount() {
+  //   axios.get('http://localhost:8000/api/todos')
+  //   .then(res => this.setState({ todos: res.data.data }))
+  // }
+
   // get todos
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/todos')
          .then(res => this.setState({ todos: res.data }))
         // .then(res => console.log(res.data));
   }
+
+  // Toggle Complete with api laravel
+  // markComplete = (id,e) => {
+  //   var completed_status = e.target.checked ? 0 : 1;
+
+  //   axios.put('http://localhost:8000/api/todo-update', {
+  //     id: id,
+  //     completed : completed_status 
+  //   })
+  //   .then(res => this.setState({ todos: this.state.todos.map(todo => {
+  //                                       if(todo.id === id) {
+  //                                         todo.completed = !todo.completed;
+  //                                       }
+
+  //                                       return todo;
+  //                                       }) 
+  //                             })
+  //   );
+  // }
 
   // Toggle Complete
   markComplete = (id) => {
@@ -34,11 +59,23 @@ class App extends Component {
     });
   }
 
+  // Delete todo with api laravel
+  // delTodo = (id) => {
+  //   axios.delete(`http://localhost:8000/api/todo/${id}`)
+  //     .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
+  // }
+
   // Delete todo
   delTodo = (id) => {
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
       .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
   }
+
+  // Delete todo with api laravel
+  // delTodo = (id) => {
+  //   axios.delete(`http://localhost:8000/api/todo/${id}`)
+  //     .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
+  // }
 
   // add Todo
   addTodo = (title) => {
